@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>{{title}}</title>
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+    <div class="content">
+        <h1>ServiceNow Boutique Consultant</h1>
+        <ul>
+            <li><a href="">Trust</a></li>
+            <li><a href="">Transparency</a></li>
+            <li><a href="">Timeliness</a></li>
+        </ul>
+        <p>Trusted & Free Help From Experts
+            With 25 Years Of Combined ServiceNow Experience</p>
+        <a href="#contact"><button type="submit">lets talk</button></a>
+        <img src="{% static 'images/now.png' %}" alt="now">
+    </div>
+</section>
+<section class="brands">
+    <div class="br-content">
+        <img src="{% static 'images/brands/amazon.png' %}" alt="amazon">
+        <img src="{% static 'images/brands/hilton.png' %}" alt="hiltn">
+        <img src="{% static 'images/brands/quad.png' %}" alt="quad">
+        <img src="{% static 'images/brands/ebay.png' %}" alt="ebay">
+        <img src="{% static 'images/brands/sun.png' %}" alt="sun">
+    </div>
+</section>
+<section class="TTT">
+    <div class="content">
+        <div class="list">
+            <div id="tr">
+                <h3><i class="fas fa-fingerprint"></i><span> Trust</span></h3>
+            </div>
+            <div id="ts">
+                <h3><i class="far fa-eye"></i><span> Transparency</span></h3>
+            </div>
+            <div id="tm">
+                <h3><i class="fas fa-stopwatch"></i><span> Timeliness</span></h3>
+            </div>
+        </div>
+        <div class="display">
+            <h2 id="h">TRUST</h2>
+            <p id="p">We ensure that all data of projects must safe and secure. we takes all important steps to protect
+                our client data.</p>
+        </div>
+    </div>
+</section>
+<section class="about" id="about">
+    <div class="content">
+        <img src="{% static 'images/about.png' %}" alt="About">
+        <div class="display">
+            <h2>About us</h2>
+            <p>Founded in 2014, MARIPOSA is a provider of ServiceNow consulting and software development services.
+                Having started as a
+                Fantasy sports product company, we switched to IT services in 2018 and ever since we have helped IT,
+                non-IT
+                organizations and software product companies improve business performance and quickly win their goals.
+            </p>
+        </div>
+    </div>
+</section>
+<section class="solution" id="sol">
+    <div class="content">
+        <img src="{% static 'images/solution.png' %}" alt="Solution">
+        <div class="display">
+            <div class="card">
+                <div class="circle"><i class="fas fa-search"></i></div>
+                <p>Clarify Your Need and Aims</p>
+            </div>
+            <div class="card">
+                <div class="circle"><i class="far fa-comment"></i></div>
+                <p>Jointly Spell Out
+                    Your Requirements</p>
+            </div>
+            <div class="card">
+                <div class="circle"><i class="fas fa-code"></i></div>
+                <p>Implement Your
+                    Functionality</p>
+            </div>
+            <div class="card">
+                <div class="circle"><i class="fas fa-cog"></i></div>
+                <p>Support Your
+                    System</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="case" id="case">
+    <div class="content">
+        <img src="{% static 'images/case.png' %}" alt="Case Study">
+        <div class="display">
+            <h3>1.SERVICENOW ACTIVE DIRECTORY (AD) INTEGRATION FOR SINGLE SIGN-ON</h3>
+            <p>To integrate ServiceNow with Active Directory, Mariposa’s specialists first configured the ServiceNow
+                LDAP (Lightweight
+                Directory Access Protocol) module to exchange information with the Customer's Active Directory server.
+                Then, ADFS
+                (Active Directory Federation Services) – a part of AD – was configured to grant access to the Customer’s
+                user identity
+                information. After that, our team configured the Customer’s ServiceNow and established the connection
+                with ADFS from
+                ServiceNow’s side. This finally integrated the two systems making ServiceNow a part of a broader single
+                sign-on (SSO)
+                system.</p>
+            <h2><a href="#">Next <i class="fas fa-arrow-right"></i></a></h2>
+        </div>
+    </div>
+</section>
+<section class="testimonial">
+    <div class="content">
+        <img src="{% static 'images/testimonials.png' %}" alt="testimonial">
+        <div class="display">
+            <img src="{% static 'images/profile.jpeg' %}" alt="">
+            <div class="comment">
+                <h3><i class="fas fa-quote-left"></i></h3>
+                <p>Mariposa proved to be a professional service provider from the outset. We appreciate their proactive
+                    approach and
+                    ability to suggest improvements to a prospective solution on both architectural and business levels.
+                </p>
+                <h3><i class="fas fa-quote-right"></i></h3>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="contact" id="contact">
+    <div class="content">
+        <img src="{% static 'images/contact.png' %}" alt="Contact us">
+        <form action="{% url 'home' %}" method="POST">
+            {% csrf_token %}
+            <h1>Contact Form</h1>
+            <div class="form form-1">
+                <input type="text" name="name" placeholder="Name">
+                <input type="email" name="email" placeholder="Email">
+            </div>
+            <div class="form form-2">
+                <textarea name="text" id="" cols="30" rows="10" placeholder="How Can Help You"></textarea>
+            </div>
+            <div class="form-3"><button type="submit">Send</button></div>
+        </form>
+    </div>
+</section>
+{% endblock %}

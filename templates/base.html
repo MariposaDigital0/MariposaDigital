@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+
+    {% endblock %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <nav>
+        <a href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" alt="logo"></a>
+        <div class="menu">
+            {% if user.is_authenticated %}
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'dashboard' user.id user.session_token %}">Dashboard</a></li>
+                <li><a href="">Knowledge</a></li>
+                <li><a href="">Contact Us</a></li>
+                <li><a href="">{{user.username}}</a></li>
+            </ul>
+            <a href="{% url 'logout' user.id %}"><button type="submit">Logout</button></a>
+            <i class="fas fa-bars" id="hm-btn"></i>
+            {% else %}
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#sol">Solutions</a></li>
+                <li><a href="#case">Case Studies</a></li>
+                <li><a href="">Knowledge</a></li>
+            </ul>
+            <button type="submit" id="show">Client Login</button>
+            <i class="fas fa-bars" id="hm-btn"></i>
+            {% endif %}
+        </div>
+        <div class="mob-nav" id="mb-nav">
+            <ul>
+                <li><a href="">About</a></li>
+                <li><a href="">Solutions</a></li>
+                <li><a href="">Case Studies</a></li>
+                <li><a href="">Knowledge</a></li>
+                <li><a href="">Client Login</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="auth">
+        <div class="bgr"></div>
+        <div class="login">
+            <a href="" id="close"><i class="far fa-times-circle"></i></a>
+            <h1>Login</h1>
+            <form action="{% url 'login' %}" method="POST">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Username" class="inp">
+                <input type="password" name="password" placeholder="Password" class="inp">
+                <input type="submit" value="Login" class="l-btn" id="l-btn">
+            </form>
+            <a href="">Forgot password?</a>
+            <a href="{% url 'signup' %}">Create a new account</a>
+        </div>
+    </section>
+    {% block content %}
+
+    {% endblock %}
+    <footer>
+        <ul id="option">
+            <li><a href="">About</a></li>
+            <li><a href="">Privacy</a></li>
+            <li><a href="">Terms</a></li>
+        </ul>
+        <ul id="icons">
+            <li><i class="fab fa-facebook-f"></i></li>
+            <li><i class="fab fa-twitter"></i></li>
+            <li><i class="fab fa-youtube"></i></li>
+        </ul>
+    </footer>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>
