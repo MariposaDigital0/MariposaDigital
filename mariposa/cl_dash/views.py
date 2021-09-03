@@ -17,27 +17,23 @@ def validate_user_session(id, token):
 
 
 def dashboard(request, id, token):
-    User = get_user_model()
-    user = User.objects.get(id=id)
-    jobs = Jobs.objects.filter(user_id=user.id).values()
     if not validate_user_session(id, token):
         return render(request, 'notfound.html')
-    if request.POST:
-        form = UploadFileForm(request.FILES)
-        if form.is_valid():
-            print("Valid")
-            instance = Requirments(
-                req=request.FILES['file'], user_id=user.id)
-            instance.save()
-        print("Not valid")
-        return redirect('/dashboard/{}/{}/'.format(user.id, user.session_token))
-    else:
-        form = UploadFileForm()
-        context = {
-            'jobs': jobs,
-            'form': form,
-        }
-        return render(request, 'dashboard.html', context)
+    context = {
+    }
+    return render(request, 'general.html', context)
+
+
+def CreateNewProject(request, id, token):
+    title = 'New Project'
+    val = 'np'
+    if not validate_user_session(id, token):
+        return render(request, 'notfound.html')
+    context = {
+        'title': title,
+        'val': val,
+    }
+    return render(request, 'general.html', context)
 
 
 def agreement(request, id, token):

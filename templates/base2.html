@@ -44,12 +44,25 @@
     <section class="sidebar">
         <div class="side-menu">
             <ul>
-                <li><a href="{% url 'dashboard' user.id user.session_token %}"><i class="fas fa-briefcase"></i> &nbsp
-                        &nbsp Works</a></li>
-                <li><a href="{% url 'agreement' user.id user.session_token %}"><i class="fas fa-handshake"></i> &nbsp
-                        &nbsp Agreement</a></li>
-                <li><a href="{% url 'agreement' user.id user.session_token %}"><i class="far fa-money-bill-alt"></i>
-                        &nbsp &nbsp Payment</a></li>
+                <li><a href="">Dashboard</a></li>
+                <li><a href="">Projects</a></li>
+                <ul>
+                    <li><a href="{% url 'newproject' user.id user.session_token%}">Create New</a></li>
+                    <li><a href="">List</a></li>
+                    <li><a href="">In progress</a></li>
+                    <li><a href="">Completed (Payment Due)</a></li>
+                    <li><a href="">Completed</a></li>
+                    <li><a href="">Task</a></li>
+                    <ul>
+                        <li><a href="">Creat New</a></li>
+                        <li><a href="">List</a></li>
+                        <li><a href="">In Progress</a></li>
+                        <li><a href="">Backlogs </a></li>
+                        <li><a href="">Completed</a></li>
+                    </ul>
+                </ul>
+                <li><a href="">Settings</a></li>
+                <li><a href="">My Profile</a></li>
             </ul>
         </div>
     </section>

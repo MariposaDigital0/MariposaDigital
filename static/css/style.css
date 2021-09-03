@@ -254,6 +254,7 @@ footer {
   background: #cccccc;
   color: #666666;
   font-weight: 500;
+  z-index: 1;
 }
 
 footer ul {
@@ -1077,8 +1078,10 @@ footer ul li i {
 }
 
 .sidebar {
+  background-color: #f2f2f2;
   border-right: 1px solid #cccccc;
-  width: 200px;
+  width: 300px;
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1089,14 +1092,14 @@ footer ul li i {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
 }
 
 .sidebar .side-menu {
-  width: 90%;
-  height: 50%;
+  width: 100%;
+  height: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1104,12 +1107,14 @@ footer ul li i {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  overflow-y: auto;
 }
 
 .sidebar .side-menu ul li {
-  margin: 40px 0;
+  margin: 15px 0;
   margin-left: -10px;
 }
 
@@ -1119,23 +1124,8 @@ footer ul li i {
 
 .dash {
   overflow: hidden;
-  margin-left: 200px;
-  height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-}
-
-.dash .up-file {
-  width: 100%;
-  height: 30%;
+  margin-left: 300px;
+  height: 150vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1146,18 +1136,68 @@ footer ul li i {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.dash .up-file h3 {
-  color: #666666;
+.dash .progform {
+  margin-top: 70px;
+  margin-bottom: 50px;
+  width: 90%;
+  height: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
-.dash .up-file form #myfile {
-  font: font1;
-  color: #666666;
+.dash .progform h1 {
+  text-align: center;
+  font-size: 30px;
+  color: #00ccff;
 }
 
-.dash .up-file form .btn {
+.dash .progform form {
+  width: 100%;
+  height: 70%;
+  background-color: red;
+}
+
+.dash .progform form .row {
+  width: 100%;
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.dash .progform form .row .col {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.dash .btn {
   background: #b3b3b3;
   width: 100px;
   height: 40px;
@@ -1167,79 +1207,8 @@ footer ul li i {
   cursor: pointer;
 }
 
-.dash .up-file form .btn:hover {
+.dash .btn:hover {
   background: #00ccff;
-}
-
-.dash .works {
-  width: 100%;
-  height: 70%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.dash .works .wk {
-  -webkit-box-shadow: 1px 1px 15px #cccccc;
-          box-shadow: 1px 1px 15px #cccccc;
-  border-radius: 20px;
-  height: 75%;
-  width: 25%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.dash .works .wk h3 {
-  color: #666666;
-}
-
-.dash .works .wk .jobs {
-  padding: 5px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 80%;
-  height: 50px;
-  -webkit-box-shadow: 1px 3px 10px #cccccc;
-          box-shadow: 1px 3px 10px #cccccc;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.dash .works .wk .jobs p {
-  color: #666666;
-  font-size: 12px;
-  text-align: center;
 }
 
 @media screen and (max-width: 1035px) {

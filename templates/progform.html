@@ -1,0 +1,35 @@
+{% load static %}
+{% block content %}
+    <div class="progform">
+        <h1>Create New</h1>
+        <form action="" method="POST">
+            <div class="row">
+                <div class="col"><label for="name">Project Name</label></div>
+                <div class="col"><input type="text" id="name" name="p_name" placeholder="Project Name"></div>
+            </div>
+            <div class="row">
+                <div class="col"><label for="desc">Description</label></div>
+                <div class="col"><textarea name="desc" id="desc" cols="30" rows="10" placeholder="Description"></textarea></div>
+            </div>
+            <div class="row">
+                <div class="col"><label for="p_s_d">Planned Start Date</label></div>
+                <div class="col"><input type="date" id="p_s_d" name="p_s_d"></div>
+            </div>
+            <div class="row">
+                <div class="col"><label for="p_e_d">Planned End Date</label></div>
+                <div class="col"><input type="text" id="p_e_d" name="p_e_d"></div>
+            </div>
+            <div class="row">
+                <div class="col"><label for="esh">Estimated Hours</label></div>
+                <div class="col"><input type="text" id="esh" name="esh" placeholder="Estimated Hours"></div>
+            </div>
+            <div class="row">
+                <div class="col"><label for="esb">Estimated Budget</label></div>
+                <div class="col"><input type="text" id="esb" name="esb" placeholder="Estimated Budget"></div>
+            </div>
+            <div class="row">
+                <div class="col"><input type="submit" value="Submit" name="submit"></div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

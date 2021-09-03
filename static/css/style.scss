@@ -193,6 +193,7 @@ footer {
   background: color(border1);
   color: color(font1);
   font-weight: 500;
+  z-index: 1;
   ul {
     display: flex;
     align-items: center;
@@ -722,23 +723,26 @@ footer {
 }
 
 .sidebar {
+  background-color: color(bg);
   border-right: 1px solid color(border1);
-  width: 200px;
+  width: 300px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   .side-menu {
-    width: 90%;
-    height: 50%;
+    width: 100%;
+    height: 80%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
+    overflow-y: auto;
     ul {
       li {
-        margin: 40px 0;
+        margin: 15px 0;
         margin-left: -10px;
         a {
           color: color(font1);
@@ -750,76 +754,54 @@ footer {
 
 .dash {
   overflow: hidden;
-  margin-left: 200px;
-  height: 100vh;
+  margin-left: 300px;
+  height: 150vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  .up-file {
-    width: 100%;
-    height: 30%;
+  align-items: center;
+  justify-content: center;
+  .progform {
+    margin-top: 70px;
+    margin-bottom: 50px;
+    width: 90%;
+    height: 90%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    h3 {
-      color: color(font1);
+    justify-content: flex-start;
+    align-items: flex-start;
+    h1 {
+      text-align: center;
+      font-size: 30px;
+      color: color(primary);
     }
     form {
-      #myfile {
-        font: font1;
-        color: color(font1);
-      }
-      .btn {
-        background: color(btn2);
-        width: 100px;
-        height: 40px;
-        border: none;
-        border-radius: 5px;
-        color: color(font2);
-        cursor: pointer;
-      }
-      .btn:hover {
-        background: color(primary);
+      width: 100%;
+      height: 70%;
+      background-color: red;
+      .row {
+        width: 100%;
+        height: 80px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        .col {
+          flex: 1;
+        }
       }
     }
   }
-  .works {
-    width: 100%;
-    height: 70%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    .wk {
-      box-shadow: 1px 1px 15px color(shadow);
-      border-radius: 20px;
-      height: 75%;
-      width: 25%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      h3 {
-        color: color(font1);
-      }
-      .jobs {
-        padding: 5px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        p {
-          color: color(font1);
-          font-size: 12px;
-          text-align: center;
-        }
-        width: 80%;
-        height: 50px;
-        box-shadow: 1px 3px 10px color(shadow);
-        border-radius: 10px;
-        cursor: pointer;
-      }
-    }
+  .btn {
+    background: color(btn2);
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    color: color(font2);
+    cursor: pointer;
+  }
+  .btn:hover {
+    background: color(primary);
   }
 }
 

@@ -1,0 +1,14 @@
+{% extends 'base2.html' %}
+{% load static %}
+
+{% block title %}
+<title>{{title}}</title>
+{% endblock %}
+
+{% block content %}
+<section class="dash">
+    {% if val == 'np' %}
+        {% include 'progform.html' %}
+    {% endif %}
+</section>
+{% endblock %}

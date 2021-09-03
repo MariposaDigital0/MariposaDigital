@@ -41,6 +41,10 @@ INSTALLED_APPS = [
     'mariposa',
     'mariposa.user',
     'mariposa.cl_dash',
+    'mariposa.project',
+    'mariposa.task',
+    'mariposa.boards',
+    'mariposa.atch_jnl',
 ]
 
 MIDDLEWARE = [
