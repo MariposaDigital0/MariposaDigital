@@ -2,6 +2,8 @@ from django.shortcuts import redirect, render
 from django.contrib.auth import get_user_model
 from mariposa.project.models import Project, ProjectManager
 from .models import Task
+from .forms import UploadFileForm
+from mariposa.atch_jnl.models import Attachments
 
 
 def validate_user_session(id, token):
@@ -41,9 +43,17 @@ def CreateNewTask(request, id, token):
         p = Project.objects.get(id=project)
         t = Task(project_id=p, t_name=name, description=desc, priority=prio, planned_start_date=ps_date,
                  planned_end_date=pe_date, estimated_hours=es_hours, estimated_budget=es_budget)
-        t.save()
+        form = UploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            print("Valid")
+            instance = Attachments(
+                project_id=p, media=request.FILES['file'], task_id=t)
+            t.save()
+            instance.save()
         return redirect('/tasks/{}/{}'.format(id, token))
+    form = UploadFileForm
     context = {
+        'form': form,
         'title': title,
         'val': val,
         't_data': t_data

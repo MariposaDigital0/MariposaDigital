@@ -4,7 +4,7 @@
     <section class="t_form">
             <div class="progform">
                 <h1>New Task</h1>
-                <form action="{% url 'newtask' user.id user.session_token %}" method="POST">
+                <form action="{% url 'newtask' user.id user.session_token %}" enctype="multipart/form-data" method="POST">
                     {% csrf_token %}
                     <div class="row">
                         <div class="col"><label for="p_name">Project Name</label></div>
@@ -44,6 +44,9 @@
                     <div class="row">
                         <div class="col"><label for="esb">Estimated Budget</label></div>
                         <div class="col"><input type="text" id="esb" name="esb" required placeholder="Estimated Budget"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col">{{form.as_p}}</div>
                     </div>
                     <div class="row">
                         <div class="col"><input type="submit" value="Submit" name="submit" class="btn"></div>
