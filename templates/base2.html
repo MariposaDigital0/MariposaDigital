@@ -45,17 +45,17 @@
         <div class="side-menu">
             <ul>
                 <li><a href="">Dashboard</a></li>
-                <li><a href="">Projects</a></li>
+                <li><a href="{% url 'projects' user.id user.session_token%}">Projects</a></li>
                 <ul>
                     <li><a href="{% url 'newproject' user.id user.session_token%}">Create New</a></li>
-                    <li><a href="">List</a></li>
+                    <li><a href="{% url 'projects' user.id user.session_token%}">List</a></li>
                     <li><a href="">In progress</a></li>
                     <li><a href="">Completed (Payment Due)</a></li>
                     <li><a href="">Completed</a></li>
-                    <li><a href="">Task</a></li>
+                    <li><a href="{% url 'tasks' user.id user.session_token %}">Task</a></li>
                     <ul>
-                        <li><a href="">Creat New</a></li>
-                        <li><a href="">List</a></li>
+                        <li><a href="{% url 'newtask' user.id user.session_token %}">Creat New</a></li>
+                        <li><a href="{% url 'tasks' user.id user.session_token %}">List</a></li>
                         <li><a href="">In Progress</a></li>
                         <li><a href="">Backlogs </a></li>
                         <li><a href="">Completed</a></li>

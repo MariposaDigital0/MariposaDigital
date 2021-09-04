@@ -10,5 +10,14 @@
     {% if val == 'np' %}
         {% include 'progform.html' %}
     {% endif %}
+    {% if val == 'pg' %}
+        {% include 'list.html' %}
+    {% endif %}
+    {% if val == 'ctk' %}
+        {% include 'taskform.html' %}
+    {% endif %}
+    {% if val == 'tk' %}
+        {% include 'tlist.html' %}
+    {% endif %}
 </section>
 {% endblock %}

@@ -8,15 +8,18 @@ class Project(models.Model):
     description = models.TextField()
     planned_start_date = models.DateField(auto_now=False, auto_now_add=False)
     planned_end_date = models.DateField(auto_now=False, auto_now_add=False)
-    actual_start_date = models.DateField(auto_now=False, auto_now_add=False)
-    actual_end_date = models.DateField(auto_now=False, auto_now_add=False)
+    actual_start_date = models.DateField(
+        auto_now=False, auto_now_add=False, blank=True, null=True)
+    actual_end_date = models.DateField(
+        auto_now=False, auto_now_add=False, blank=True, null=True)
     estimated_hours = models.CharField(max_length=45)
-    actual_hours = models.CharField(max_length=45)
+    actual_hours = models.CharField(max_length=45, blank=True, null=True)
     estimated_budget = models.CharField(max_length=45)
-    status = models.CharField(max_length=45)
-    project_id = models.ForeignKey('Project', on_delete=models.CASCADE)
-    project_no = models.CharField(max_length=45)
-    projectcol = models.CharField(max_length=45)
+    status = models.CharField(max_length=45, blank=True, null=True)
+    project_id = models.ForeignKey(
+        'Project', on_delete=models.CASCADE, blank=True, null=True)
+    project_no = models.CharField(max_length=45, blank=True, null=True)
+    projectcol = models.CharField(max_length=45, blank=True, null=True)
 
     def __str__(self):
         return self.p_name

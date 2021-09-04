@@ -22,39 +22,3 @@ def dashboard(request, id, token):
     context = {
     }
     return render(request, 'general.html', context)
-
-
-def CreateNewProject(request, id, token):
-    title = 'New Project'
-    val = 'np'
-    if not validate_user_session(id, token):
-        return render(request, 'notfound.html')
-    context = {
-        'title': title,
-        'val': val,
-    }
-    return render(request, 'general.html', context)
-
-
-def agreement(request, id, token):
-    User = get_user_model()
-    user = User.objects.get(id=id)
-    if not validate_user_session(id, token):
-        return render(request, 'notfound.html')
-    else:
-        context = {
-
-        }
-        return render(request, 'agreement.html', context)
-
-
-def payment(request, id, token):
-    User = get_user_model()
-    user = User.objects.get(id=id)
-    if not validate_user_session(id, token):
-        return render(request, 'notfound.html')
-    else:
-        context = {
-
-        }
-        return render(request, 'payment.html', context)

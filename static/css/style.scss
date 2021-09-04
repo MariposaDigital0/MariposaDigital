@@ -4,7 +4,7 @@
 $color: (
   primary: #00ccff,
   accent: #008fb3,
-  shadow: #cccccc,
+  shadow: #0000000a,
   btn1: #d9d9d9,
   btn2: #b3b3b3,
   btn3: #242b2e,
@@ -14,6 +14,7 @@ $color: (
   border1: #cccccc,
   border2: #242b2e,
   bg: #f2f2f2,
+  bg1: #e6e6e6,
   bg2: #ffffff,
 );
 
@@ -723,7 +724,7 @@ footer {
 }
 
 .sidebar {
-  background-color: color(bg);
+  background-color: color(accent);
   border-right: 1px solid color(border1);
   width: 300px;
   height: 100vh;
@@ -745,7 +746,7 @@ footer {
         margin: 15px 0;
         margin-left: -10px;
         a {
-          color: color(font1);
+          color: color(font2);
         }
       }
     }
@@ -759,49 +760,152 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  background-color: color(bg);
   .progform {
-    margin-top: 70px;
-    margin-bottom: 50px;
-    width: 90%;
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    background-color: color(bg2);
+    border: 1px solid color(border1);
+    width: 65%;
+    height: 80%;
+    margin-top: 100px;
+    border-radius: 10px;
     h1 {
-      text-align: center;
       font-size: 30px;
-      color: color(primary);
+      margin-left: 40px;
+      margin-top: 50px;
+      color: color(accent);
     }
     form {
-      width: 100%;
-      height: 70%;
-      background-color: red;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 80%;
+      margin: 0 40px;
       .row {
-        width: 100%;
-        height: 80px;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
+        margin-bottom: 20px;
+        height: auto;
         .col {
-          flex: 1;
+          margin-bottom: 5px;
+          label {
+            color: color(accent);
+          }
+          input {
+            color: color(font1);
+            background: color(bg1);
+            // border: 1px solid color(border1);
+            border: none;
+            padding-left: 10px;
+            padding-right: 10px;
+            outline: none;
+            height: 30px;
+            width: 70%;
+            border-radius: 6px;
+          }
+          textarea {
+            background: color(bg1);
+            resize: none;
+            width: 70%;
+            height: 90px;
+            // border: 1px solid color(border1);
+            border: none;
+            padding: 10px;
+            border-radius: 6px;
+            outline: none;
+          }
+          .btn {
+            background: color(btn2);
+            width: 100px;
+            height: 40px;
+            border: none;
+            border-radius: 3px;
+            color: color(font2);
+            cursor: pointer;
+          }
+          .btn:hover {
+            background: color(primary);
+          }
         }
       }
     }
   }
-  .btn {
-    background: color(btn2);
-    width: 100px;
-    height: 40px;
-    border: none;
-    border-radius: 5px;
-    color: color(font2);
-    cursor: pointer;
+}
+
+.pg_list {
+  overflow: hidden;
+  height: 150vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: color(bg);
+  .data_list {
+    h1 {
+      font-size: 30px;
+      color: color(accent);
+    }
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 100px;
+    width: 90%;
+    height: 80%;
+    border: 1px solid color(border1);
+    overflow-y: auto;
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 90%;
+      td {
+        text-align: center;
+        padding: 8px;
+        color: color(font1);
+      }
+      th {
+        text-align: center;
+        padding: 8px;
+        color: color(accent);
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+    }
   }
-  .btn:hover {
-    background: color(primary);
+}
+
+.t_form {
+  overflow: hidden;
+  height: 300vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: color(bg);
+  .progform {
+    height: 90%;
+    margin-bottom: 100px;
+    form {
+      height: 85%;
+      select {
+        color: color(font1);
+        background: color(bg1);
+        // border: 1px solid color(border1);
+        border: none;
+        padding-left: 10px;
+        padding-right: 10px;
+        outline: none;
+        height: 30px;
+        width: 250px;
+        border-radius: 6px;
+      }
+      .row {
+        margin-bottom: 10px;
+      }
+    }
   }
 }
 

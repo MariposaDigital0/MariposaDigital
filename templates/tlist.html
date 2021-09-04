@@ -1,0 +1,25 @@
+{% load static %}
+
+{% block content %}
+    <section class="pg_list">
+        <div class="data_list">
+            <h1>Your Tasks</h1>
+            <table class="table">
+                <tr>
+                    {% for h in t_header %}
+                    <th>{{h}}</th>
+                    {% endfor %}
+                </tr>
+                {% for d in t_data %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{d.t_name}}</td>
+                    <td>{{d.estimated_hours}}</td>
+                    <td>{{d.estimated_budget}}</td>
+                    <td>{{d.priority}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </section>
+{% endblock %}

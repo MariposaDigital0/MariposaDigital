@@ -34,8 +34,8 @@ section {
   background-color: #f2f2f2;
   width: 100%;
   height: 80%;
-  -webkit-box-shadow: 1px 3px 15px #cccccc;
-          box-shadow: 1px 3px 15px #cccccc;
+  -webkit-box-shadow: 1px 3px 15px #0000000a;
+          box-shadow: 1px 3px 15px #0000000a;
 }
 
 .display {
@@ -44,8 +44,8 @@ section {
   width: 50%;
   height: 50%;
   border-radius: 10px;
-  -webkit-box-shadow: 1px 3px 15px #cccccc;
-          box-shadow: 1px 3px 15px #cccccc;
+  -webkit-box-shadow: 1px 3px 15px #0000000a;
+          box-shadow: 1px 3px 15px #0000000a;
 }
 
 body {
@@ -101,8 +101,8 @@ nav {
       -ms-flex-align: center;
           align-items: center;
   height: 60px;
-  -webkit-box-shadow: 0px 5px 5px #cccccc;
-          box-shadow: 0px 5px 5px #cccccc;
+  -webkit-box-shadow: 0px 5px 5px #0000000a;
+          box-shadow: 0px 5px 5px #0000000a;
 }
 
 nav img {
@@ -633,8 +633,8 @@ footer ul li i {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-shadow: 1px 3px 15px #cccccc;
-          box-shadow: 1px 3px 15px #cccccc;
+  -webkit-box-shadow: 1px 3px 15px #0000000a;
+          box-shadow: 1px 3px 15px #0000000a;
   border-radius: 50%;
   height: 75px;
   width: 75px;
@@ -742,8 +742,8 @@ footer ul li i {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  -webkit-box-shadow: 1px 3px 15px #cccccc;
-          box-shadow: 1px 3px 15px #cccccc;
+  -webkit-box-shadow: 1px 3px 15px #0000000a;
+          box-shadow: 1px 3px 15px #0000000a;
 }
 
 .testimonial .content .display p {
@@ -828,8 +828,8 @@ footer ul li i {
   border: none;
   outline: none;
   border-radius: 5px;
-  -webkit-box-shadow: 1px 3px 15px #cccccc;
-          box-shadow: 1px 3px 15px #cccccc;
+  -webkit-box-shadow: 1px 3px 15px #0000000a;
+          box-shadow: 1px 3px 15px #0000000a;
   font-size: 18px;
   color: #666666;
   padding: 10px;
@@ -848,8 +848,8 @@ footer ul li i {
   height: 80px;
   margin: 10px;
   border-radius: 5px;
-  -webkit-box-shadow: 1px 3px 15px #cccccc;
-          box-shadow: 1px 3px 15px #cccccc;
+  -webkit-box-shadow: 1px 3px 15px #0000000a;
+          box-shadow: 1px 3px 15px #0000000a;
   resize: none;
   font-size: 16px;
   color: #666666;
@@ -1078,7 +1078,7 @@ footer ul li i {
 }
 
 .sidebar {
-  background-color: #f2f2f2;
+  background-color: #008fb3;
   border-right: 1px solid #cccccc;
   width: 300px;
   height: 100vh;
@@ -1119,7 +1119,7 @@ footer ul li i {
 }
 
 .sidebar .side-menu ul li a {
-  color: #666666;
+  color: #f2f2f2;
 }
 
 .dash {
@@ -1136,16 +1136,29 @@ footer ul li i {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  background-color: #f2f2f2;
 }
 
 .dash .progform {
-  margin-top: 70px;
-  margin-bottom: 50px;
-  width: 90%;
-  height: 90%;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  width: 65%;
+  height: 80%;
+  margin-top: 100px;
+  border-radius: 10px;
+}
+
+.dash .progform h1 {
+  font-size: 30px;
+  margin-left: 40px;
+  margin-top: 50px;
+  color: #008fb3;
+}
+
+.dash .progform form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1153,62 +1166,175 @@ footer ul li i {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-}
-
-.dash .progform h1 {
-  text-align: center;
-  font-size: 30px;
-  color: #00ccff;
-}
-
-.dash .progform form {
-  width: 100%;
-  height: 70%;
-  background-color: red;
-}
-
-.dash .progform form .row {
-  width: 100%;
-  height: 80px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  height: 80%;
+  margin: 0 40px;
+}
+
+.dash .progform form .row {
+  margin-bottom: 20px;
+  height: auto;
 }
 
 .dash .progform form .row .col {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  margin-bottom: 5px;
 }
 
-.dash .btn {
+.dash .progform form .row .col label {
+  color: #008fb3;
+}
+
+.dash .progform form .row .col input {
+  color: #666666;
+  background: #e6e6e6;
+  border: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  outline: none;
+  height: 30px;
+  width: 70%;
+  border-radius: 6px;
+}
+
+.dash .progform form .row .col textarea {
+  background: #e6e6e6;
+  resize: none;
+  width: 70%;
+  height: 90px;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  outline: none;
+}
+
+.dash .progform form .row .col .btn {
   background: #b3b3b3;
   width: 100px;
   height: 40px;
   border: none;
-  border-radius: 5px;
+  border-radius: 3px;
   color: #f2f2f2;
   cursor: pointer;
 }
 
-.dash .btn:hover {
+.dash .progform form .row .col .btn:hover {
   background: #00ccff;
+}
+
+.pg_list {
+  overflow: hidden;
+  height: 150vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  background-color: #f2f2f2;
+}
+
+.pg_list .data_list {
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-top: 100px;
+  width: 90%;
+  height: 80%;
+  border: 1px solid #cccccc;
+  overflow-y: auto;
+}
+
+.pg_list .data_list h1 {
+  font-size: 30px;
+  color: #008fb3;
+}
+
+.pg_list .data_list table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 90%;
+}
+
+.pg_list .data_list table td {
+  text-align: center;
+  padding: 8px;
+  color: #666666;
+}
+
+.pg_list .data_list table th {
+  text-align: center;
+  padding: 8px;
+  color: #008fb3;
+}
+
+.pg_list .data_list table tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.t_form {
+  overflow: hidden;
+  height: 300vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  background-color: #f2f2f2;
+}
+
+.t_form .progform {
+  height: 90%;
+  margin-bottom: 100px;
+}
+
+.t_form .progform form {
+  height: 85%;
+}
+
+.t_form .progform form select {
+  color: #666666;
+  background: #e6e6e6;
+  border: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  outline: none;
+  height: 30px;
+  width: 250px;
+  border-radius: 6px;
+}
+
+.t_form .progform form .row {
+  margin-bottom: 10px;
 }
 
 @media screen and (max-width: 1035px) {
