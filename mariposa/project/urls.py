@@ -3,5 +3,7 @@ from . import views
 
 urlpatterns = [
     path('', views.projects, name="projects"),
-    path('createnew/', views.CreateNewProject, name="newproject"),
+    path('createnew/', views.createNewProject, name="newproject"),
+    path('project_detail_view/<int:pid>',
+         views.projectDetailView, name="pd_view"),
 ]

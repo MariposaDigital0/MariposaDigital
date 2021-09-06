@@ -862,9 +862,14 @@ footer {
       border-collapse: collapse;
       width: 90%;
       td {
+        font-size: 14px;
         text-align: center;
         padding: 8px;
         color: color(font1);
+        a {
+          text-transform: uppercase;
+          color: color(accent);
+        }
       }
       th {
         text-align: center;
@@ -1009,6 +1014,74 @@ footer {
         border: 1px solid color(border1);
         border-radius: 10px;
         cursor: pointer;
+      }
+    }
+  }
+}
+
+.bord {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.projdtl {
+  .detail {
+    height: 80%;
+    width: 80%;
+    border: 1px solid color(border1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    h1 {
+      color: color(accent);
+      font-size: 30px;
+      margin: 10px 0;
+    }
+    table {
+      width: 80%;
+      th {
+        font-size: 14px;
+        color: color(accent);
+        text-align: left;
+        border-bottom: 1px solid color(border1);
+      }
+      td {
+        font-size: 14px;
+        color: color(font1);
+        text-align: right;
+        border-bottom: 1px solid color(border1);
+      }
+    }
+    .ebtn {
+      height: 80px;
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      #edit {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        height: 50px;
+        border-radius: 10px;
+        background: color(btn2);
+        color: color(font1);
+        transition: background 0.2s ease-out;
+      }
+      #edit:hover {
+        background: color(accent);
+        color: color(font2);
+        transition: background 0.2s ease-in;
       }
     }
   }

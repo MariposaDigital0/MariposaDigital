@@ -39,7 +39,23 @@ def projects(request, id, token):
     return render(request, 'general.html', context)
 
 
-def CreateNewProject(request, id, token):
+def projectDetailView(request, id, token, pid):
+    if not validate_user_session(id, token):
+        return render(request, 'notfound.html')
+    UserModel = get_user_model()
+    user = UserModel.objects.get(id=id)
+    title = "Detailed View"
+    val = "pdv"
+    proj = Project.objects.get(id=pid)
+    context = {
+        'title': title,
+        'val': val,
+        'proj': proj,
+    }
+    return render(request, 'general.html', context)
+
+
+def createNewProject(request, id, token):
     user = get_user_model()
     title = 'New Project'
     val = 'np'

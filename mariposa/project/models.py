@@ -14,7 +14,9 @@ class Project(models.Model):
         auto_now=False, auto_now_add=False, blank=True, null=True)
     estimated_hours = models.CharField(max_length=45)
     actual_hours = models.CharField(max_length=45, blank=True, null=True)
+    actual_budget = models.CharField(max_length=45, blank=True, null=True)
     estimated_budget = models.CharField(max_length=45)
+    accepted = models.BooleanField(default=False)
     TODO = 'TD'
     DOING = 'DG'
     DONE = 'DN'

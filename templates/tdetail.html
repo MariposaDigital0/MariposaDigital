@@ -1,0 +1,94 @@
+{% load static %}
+
+{% block pdetail %}
+<section class="bord projdtl">
+    <div class="detail">
+        <h1>Task Detail View</h1>
+        <table>
+            <tr>
+                <th>
+                    <h3>Project Name</h3>
+                </th>
+                <td>
+                    <p>{{proj.p_name}}</p>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <h3>Description</h3>
+                </th>
+                <td>
+                    <p>{{proj.description}}</p>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <h3>Planned Start Date</h3>
+                </th>
+                <td>
+                    <p>{{proj.planned_start_date}}</p>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <h3>Planned End Date</h3>
+                </th>
+                <td>
+                    <p>{{proj.planned_end_date}}</p>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <h3>Estimated Hours</h3>
+                </th>
+                <td>
+                    <p>{{proj.estimated_hours}}</p>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <h3>Estimated Budget</h3>
+                </th>
+                <td>
+                    <p>{{proj.estimated_budget}}</p>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <h3>Actual Start Date</h3>
+                </th>
+                <td>
+                    <p>{{proj.actual_start_date}}</p>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <h3>Actual End date</h3>
+                </th>
+                <td>
+                    <p>{{proj.actual_end_date}}</p>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <h3>Actual Hours</h3>
+                </th>
+                <td>
+                    <p>{{proj.actual_hours}}</p>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <h3>Actual Budget</h3>
+                </th>
+                <td>
+                    <p>{{proj.actual_budget}}</p>
+                </td>
+            </tr>
+        </table>
+        <div class="ebtn">
+            <a href="" id="edit">Edit</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
