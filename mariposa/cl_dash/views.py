@@ -1,8 +1,6 @@
 from django import forms
 from django.shortcuts import redirect, render
 from django.contrib.auth import get_user_model
-from .models import Requirments, Jobs
-from .forms import UploadFileForm
 
 
 def validate_user_session(id, token):
@@ -16,9 +14,13 @@ def validate_user_session(id, token):
         return False
 
 
-def dashboard(request, id, token):
+def cldash(request, id, token):
     if not validate_user_session(id, token):
         return render(request, 'notfound.html')
+    title = "Client Dashboard"
+    val = "cdb"
     context = {
+        'title': title,
+        'val': val,
     }
     return render(request, 'general.html', context)

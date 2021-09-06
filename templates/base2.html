@@ -22,7 +22,7 @@
             {% if user.is_authenticated %}
             <ul>
                 <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'dashboard' user.id user.session_token %}">Dashboard</a></li>
+                <li><a href="{% url 'cldash' user.id user.session_token %}">Dashboard</a></li>
                 <li><a href="">Knowledge</a></li>
                 <li><a href="">Contact Us</a></li>
                 <li><a href="">{{user.username}}</a></li>
@@ -44,8 +44,8 @@
     <section class="sidebar">
         <div class="side-menu">
             <ul>
-                <li><a href="">Dashboard</a></li>
-                <li><a href="{% url 'projects' user.id user.session_token%}">Projects</a></li>
+                <li><a href="{% url 'cldash' user.id user.session_token %}">Dashboard</a></li>
+                <li><a href="{% url 'projects' user.id user.session_token %}">Projects</a></li>
                 <ul>
                     <li><a href="{% url 'newproject' user.id user.session_token%}">Create New</a></li>
                     <li><a href="{% url 'projects' user.id user.session_token%}">List</a></li>

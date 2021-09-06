@@ -12,7 +12,25 @@ def home(request):
         return redirect('/')
     else:
         title = "Mariposa Home"
+        login = "login"
+        signup = "signup"
+        tp = "CL"
         context = {
-            'title': title
+            'login': login,
+            'signup': signup,
+            'title': title,
+            'tp': tp,
         }
         return render(request, 'home.html', context)
+
+
+def devHome(request):
+    title = "Mariposa Developers"
+    login = "login"
+    signup = "dev_signup"
+    context = {
+        'login': login,
+        'signup': signup,
+        'title': title,
+    }
+    return render(request, 'dev.html', context)

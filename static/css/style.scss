@@ -8,6 +8,7 @@ $color: (
   btn1: #d9d9d9,
   btn2: #b3b3b3,
   btn3: #242b2e,
+  btn4: #374950,
   font1: #666666,
   font2: #f2f2f2,
   font3: #0d0d0d,
@@ -16,6 +17,7 @@ $color: (
   bg: #f2f2f2,
   bg1: #e6e6e6,
   bg2: #ffffff,
+  bg3: #000000,
 );
 
 $fon1: "Montserrat", sans-serif;
@@ -909,6 +911,103 @@ footer {
       #id_file {
         background: none;
         color: color(accent);
+      }
+    }
+  }
+}
+
+.devbody {
+  background: color(bg3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  #bgdev {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    opacity: 0.5;
+  }
+  .devcont {
+    width: 50%;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      font-size: 40px;
+      color: color(font2);
+    }
+    .devlogin {
+      width: 180px;
+      height: 60px;
+      background: color(accent);
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: color(font2);
+      font-size: 18px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    #devlogin:hover {
+      background: color(primary);
+    }
+  }
+}
+
+.cldash {
+  overflow: hidden;
+  margin-top: 80px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .works {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    .wk {
+      border: 1px solid color(border1);
+      border-radius: 20px;
+      height: 95%;
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      h3 {
+        color: color(font1);
+      }
+      .jobs {
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        p {
+          color: color(font1);
+          font-size: 12px;
+          text-align: center;
+        }
+        width: 80%;
+        height: 50px;
+        border: 1px solid color(border1);
+        border-radius: 10px;
+        cursor: pointer;
       }
     }
   }

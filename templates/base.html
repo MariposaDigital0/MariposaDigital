@@ -22,7 +22,7 @@
             {% if user.is_authenticated %}
             <ul>
                 <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'dashboard' user.id user.session_token %}">Dashboard</a></li>
+                <li><a href="{% url 'cldash' user.id user.session_token %}">Dashboard</a></li>
                 <li><a href="">Knowledge</a></li>
                 <li><a href="">Contact Us</a></li>
                 <li><a href="">{{user.username}}</a></li>
@@ -50,21 +50,7 @@
             </ul>
         </div>
     </nav>
-    <section class="auth">
-        <div class="bgr"></div>
-        <div class="login">
-            <a href="" id="close"><i class="far fa-times-circle"></i></a>
-            <h1>Login</h1>
-            <form action="{% url 'login' %}" method="POST">
-                {% csrf_token %}
-                <input type="text" name="username" placeholder="Username" class="inp">
-                <input type="password" name="password" placeholder="Password" class="inp">
-                <input type="submit" value="Login" class="l-btn" id="l-btn">
-            </form>
-            <a href="">Forgot password?</a>
-            <a href="{% url 'signup' %}">Create a new account</a>
-        </div>
-    </section>
+    {% include 'auth.html' %}
     {% block content %}
 
     {% endblock %}
