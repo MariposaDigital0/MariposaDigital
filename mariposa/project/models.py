@@ -15,7 +15,19 @@ class Project(models.Model):
     estimated_hours = models.CharField(max_length=45)
     actual_hours = models.CharField(max_length=45, blank=True, null=True)
     estimated_budget = models.CharField(max_length=45)
-    status = models.CharField(max_length=45, blank=True, null=True)
+    TODO = 'TD'
+    DOING = 'DG'
+    DONE = 'DN'
+    STATE = [
+        (TODO, 'Todo'),
+        (DOING, 'Doing'),
+        (DONE, 'Done'),
+    ]
+    status = models.CharField(
+        max_length=2,
+        choices=STATE,
+        default=TODO,
+    )
     project_id = models.ForeignKey(
         'Project', on_delete=models.CASCADE, blank=True, null=True)
     project_no = models.CharField(max_length=45, blank=True, null=True)

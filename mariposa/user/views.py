@@ -88,7 +88,7 @@ def login(request):
             if user.u_type == 'CL':
                 return redirect('/cldash/{}/{}/'.format(user.id, user.session_token))
             elif user.u_type == 'DV':
-                pass
+                return redirect('/cldash/{}/{}/'.format(user.id, user.session_token))
             else:
                 pass
         else:

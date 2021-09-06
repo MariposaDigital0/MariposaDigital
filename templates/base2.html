@@ -24,7 +24,9 @@
                 <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'cldash' user.id user.session_token %}">Dashboard</a></li>
                 <li><a href="">Knowledge</a></li>
+                {% if user.u_type == 'CL' %}
                 <li><a href="">Contact Us</a></li>
+                {% endif %}
                 <li><a href="">{{user.username}}</a></li>
             </ul>
             <a href="{% url 'logout' user.id %}"><button type="submit">Logout</button></a>
@@ -41,31 +43,7 @@
             </ul>
         </div>
     </nav>
-    <section class="sidebar">
-        <div class="side-menu">
-            <ul>
-                <li><a href="{% url 'cldash' user.id user.session_token %}">Dashboard</a></li>
-                <li><a href="{% url 'projects' user.id user.session_token %}">Projects</a></li>
-                <ul>
-                    <li><a href="{% url 'newproject' user.id user.session_token%}">Create New</a></li>
-                    <li><a href="{% url 'projects' user.id user.session_token%}">List</a></li>
-                    <li><a href="">In progress</a></li>
-                    <li><a href="">Completed (Payment Due)</a></li>
-                    <li><a href="">Completed</a></li>
-                    <li><a href="{% url 'tasks' user.id user.session_token %}">Task</a></li>
-                    <ul>
-                        <li><a href="{% url 'newtask' user.id user.session_token %}">Creat New</a></li>
-                        <li><a href="{% url 'tasks' user.id user.session_token %}">List</a></li>
-                        <li><a href="">In Progress</a></li>
-                        <li><a href="">Backlogs </a></li>
-                        <li><a href="">Completed</a></li>
-                    </ul>
-                </ul>
-                <li><a href="">Settings</a></li>
-                <li><a href="">My Profile</a></li>
-            </ul>
-        </div>
-    </section>
+    {% include 'sidebar.html' %}
     {% block content %}
 
     {% endblock %}

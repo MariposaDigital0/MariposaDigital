@@ -5,21 +5,33 @@
         <div class="works">
             <div class="wk">
                 <h3>Todo</h3>
+                {% for d in pg_data %}
+                {% if d.status == 'TD' %}
                 <div class="jobs">
-                    <p></p>
+                    <p>{{d.p_name}}</p>
                 </div>
+                {% endif %}
+                {% endfor %}
             </div>
             <div class="wk">
-                <h3>Doing</h3>
+                <h3>In Progress</h3>
+                {% for d in pg_data %}
+                {% if d.status == 'DG' %}
                 <div class="jobs">
-                    <p></p>
+                    <p>{{d.p_name}}</p>
                 </div>
+                {% endif %}
+                {% endfor %}
             </div>
             <div class="wk">
-                <h3>Done</h3>
+                <h3>Completed</h3>
+                {% for d in pg_data %}
+                {% if d.status == 'DN' %}
                 <div class="jobs">
-                    <p></p>
+                    <p>{{d.p_name}}</p>
                 </div>
+                {% endif %}
+                {% endfor %}
             </div>
         </div>
     </section>
