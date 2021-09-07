@@ -46,9 +46,18 @@
                     <td><p>{{proj.actual_budget}}</p></td>
                 </tr>
             </table>
+            {% if user.u_type == 'DV' %}
+            <div class="ebtn">
+                <form action="{% url 'projects' user.id user.session_token proj.id %}" method="POST">
+                    {% csrf_token %}
+                    <input type="submit" value="Accept" id="acc">
+                </form>
+            </div>
+            {% elif user.u_type == 'CL'%}
             <div class="ebtn">
                 <a href="" id="edit">Edit</a>
             </div>
+            {% endif %}
         </div>
     </section>
 {% endblock %}

@@ -32,13 +32,13 @@
                     <li><a href="{% url 'cldash' user.id user.session_token %}">Dashboard</a></li>
                     <li><a href="">Projects</a></li>
                     <ul>
-                        <li><a href="">New</a></li>
+                        <li><a href="{% url 'projects' user.id user.session_token%}">New</a></li>
                         <li><a href="">TODO</a></li>
                         <li><a href="">In progress</a></li>
                         <li><a href="">Completed</a></li>
                         <li><a href="">Task</a></li>
                         <ul>
-                            <li><a href="">New</a></li>
+                            <li><a href="{% url 'tasks' user.id user.session_token %}">New</a></li>
                             <li><a href="">TODO</a></li>
                             <li><a href="">In Progress</a></li>
                             <li><a href="">Completed</a></li>

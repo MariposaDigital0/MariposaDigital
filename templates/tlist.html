@@ -18,7 +18,7 @@
                     <td>{{d.estimated_hours}}</td>
                     <td>{{d.estimated_budget}}</td>
                     <td>{{d.priority}}</td>
-                    <td><a href="">Detail View</a></td>
+                    <td><a href="{% url 'td_view' user.id user.session_token d.id %}">Detail View</a></td>
                 </tr>
                 {% endfor %}
             </table>

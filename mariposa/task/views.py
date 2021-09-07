@@ -61,28 +61,60 @@ def CreateNewTask(request, id, token):
     return render(request, 'general.html', context)
 
 
-def tasks(request, id, token):
+def tasks(request, id, token, tid=0):
     if not validate_user_session(id, token):
         return render(request, 'notfound.html')
-    title = "Tasks"
     val = "tk"
     UserModel = get_user_model()
     user = UserModel.objects.get(id=id)
     t_header = ['SL.No', 'Name', 'Estimated Hours',
                 'Estimated Budget', 'Priority']
-    pm = ProjectManager.objects.filter(user_account_id=user).values()
-    t_data = []
-    for i in pm:
-        p = Project.objects.get(id=i['project_id_id'])
-        tx = Task.objects.filter(project_id=p).values()
-        for j in tx:
-            t_data.append(j)
-            # print(t_data)
-            # print(i['project_id_id'])
+    if user.u_type == 'DV':
+        if request.method == 'POST':
+            t = Task.objects.get(id=tid)
+            t.accepted = True
+            t.save()
+            return redirect('/cldash/{}/{}/'.format(id, token))
+        t_data = Task.objects.filter(accepted=False).values()
+        title = "New Tasks"
+        context = {
+            'title': title,
+            'val': val,
+            't_header': t_header,
+            't_data': t_data,
+        }
+        return render(request, 'general.html', context)
+    elif user.u_type == 'CL':
+        title = "Tasks"
+        pm = ProjectManager.objects.filter(user_account_id=user).values()
+        t_data = []
+        for i in pm:
+            p = Project.objects.get(id=i['project_id_id'])
+            tx = Task.objects.filter(project_id=p).values()
+            for j in tx:
+                t_data.append(j)
+                # print(t_data)
+                # print(i['project_id_id'])
+        context = {
+            'title': title,
+            'val': val,
+            't_header': t_header,
+            't_data': t_data,
+        }
+        return render(request, 'general.html', context)
+
+
+def taskDetailView(request, id, token, tid):
+    if not validate_user_session(id, token):
+        return render(request, 'notfound.html')
+    UserModel = get_user_model()
+    user = UserModel.objects.get(id=id)
+    title = "Detailed View"
+    val = "tdv"
+    task = Task.objects.get(id=tid)
     context = {
         'title': title,
         'val': val,
-        't_header': t_header,
-        't_data': t_data,
+        'task': task,
     }
     return render(request, 'general.html', context)

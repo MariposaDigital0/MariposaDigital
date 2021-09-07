@@ -1066,6 +1066,27 @@ footer {
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      form {
+        input {
+          cursor: pointer;
+          border: none;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: 100px;
+          height: 50px;
+          border-radius: 10px;
+          background: color(btn2);
+          color: color(font1);
+          transition: background 0.2s ease-out;
+        }
+        input:hover {
+          background: color(accent);
+          color: color(font2);
+          transition: background 0.2s ease-in;
+        }
+      }
       #edit {
         display: flex;
         flex-direction: column;

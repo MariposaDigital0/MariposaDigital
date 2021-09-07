@@ -14,29 +14,46 @@ def validate_user_session(id, token):
         return False
 
 
-def projects(request, id, token):
+def projects(request, id, token, pid=0):
     if not validate_user_session(id, token):
         return render(request, 'notfound.html')
     UserModel = get_user_model()
     user = UserModel.objects.get(id=id)
-    pm = ProjectManager.objects.filter(user_account_id=user).values()
     t_header = ['SL.No', 'Name', 'Estimated Hours',
                 'Estimated Budget', 'Status', 'Progress']
     pg_data = []
-    for i in pm:
-        p = Project.objects.get(id=i['project_id_id'])
-        pg_data.append(p)
-        # print(pg_data)
-        # print(i['project_id_id'])
-    title = "Projects"
-    val = "pg"
-    context = {
-        'title': title,
-        'val': val,
-        'pg_data': pg_data,
-        't_header': t_header
-    }
-    return render(request, 'general.html', context)
+    if user.u_type == 'DV':
+        if request.method == 'POST':
+            p = Project.objects.get(id=pid)
+            p.accepted = True
+            p.save()
+            return redirect('/cldash/{}/{}/'.format(id, token))
+        pg_data = Project.objects.filter(accepted=False).values()
+        title = "New Projects"
+        val = "pg"
+        context = {
+            'title': title,
+            'val': val,
+            'pg_data': pg_data,
+            't_header': t_header
+        }
+        return render(request, 'general.html', context)
+    elif user.u_type == 'CL':
+        pm = ProjectManager.objects.filter(user_account_id=user).values()
+        for i in pm:
+            p = Project.objects.get(id=i['project_id_id'])
+            pg_data.append(p)
+            # print(pg_data)
+            # print(i['project_id_id'])
+        title = "Projects"
+        val = "pg"
+        context = {
+            'title': title,
+            'val': val,
+            'pg_data': pg_data,
+            't_header': t_header
+        }
+        return render(request, 'general.html', context)
 
 
 def projectDetailView(request, id, token, pid):

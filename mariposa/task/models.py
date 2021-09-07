@@ -19,6 +19,20 @@ class Task(models.Model):
     actual_hours = models.CharField(max_length=45, null=True, blank=True)
     estimated_budget = models.CharField(max_length=45)
     actual_budget = models.CharField(max_length=45, null=True, blank=True)
+    accepted = models.BooleanField(default=False)
+    TODO = 'TD'
+    DOING = 'DG'
+    DONE = 'DN'
+    STATE = [
+        (TODO, 'Todo'),
+        (DOING, 'Doing'),
+        (DONE, 'Done'),
+    ]
+    status = models.CharField(
+        max_length=2,
+        choices=STATE,
+        default=TODO,
+    )
     project_id = models.ForeignKey(Project, on_delete=models.CASCADE)
     is_adhoc = models.BooleanField(default=False)
     client_partner_id = models.ForeignKey(
