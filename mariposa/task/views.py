@@ -69,6 +69,7 @@ def tasks(request, id, token, tid=0):
     user = UserModel.objects.get(id=id)
     t_header = ['SL.No', 'Name', 'Estimated Hours',
                 'Estimated Budget', 'Priority']
+
     if user.u_type == 'DV':
         if request.method == 'POST':
             t = Task.objects.get(id=tid)
@@ -112,9 +113,14 @@ def taskDetailView(request, id, token, tid):
     title = "Detailed View"
     val = "tdv"
     task = Task.objects.get(id=tid)
+    try:
+        atch = Attachments.objects.get(task_id=task)
+    except Attachments.DoesNotExist:
+        atch = None
     context = {
         'title': title,
         'val': val,
         'task': task,
+        'atch': atch,
     }
     return render(request, 'general.html', context)

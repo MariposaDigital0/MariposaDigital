@@ -93,6 +93,14 @@
                     <p>{{task.actual_budget}}</p>
                 </td>
             </tr>
+            <tr>
+                <th>
+                    <h3>Attachments</h3>
+                </th>
+                <td>
+                    <a href="/media/{{atch.media}}/"><p>{{atch.media}}</p></a>
+                </td>
+            </tr>
         </table>
         {% if user.u_type == 'DV' %}
         <div class="ebtn">
