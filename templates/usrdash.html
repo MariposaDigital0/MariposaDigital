@@ -8,7 +8,11 @@
                 {% for d in pg_data %}
                 {% if d.status == 'TD' %}
                 <div class="jobs">
+                    {% if user.u_type == 'CL' %}
                     <p>{{d.p_name}}</p>
+                    {% elif user.u_type == 'DV' %}
+                    <p>{{d.t_name}}</p>
+                    {% endif %}
                 </div>
                 {% endif %}
                 {% endfor %}
@@ -17,9 +21,11 @@
                 <h3>In Progress</h3>
                 {% for d in pg_data %}
                 {% if d.status == 'DG' %}
-                <div class="jobs">
+                    {% if user.u_type == 'CL' %}
                     <p>{{d.p_name}}</p>
-                </div>
+                    {% elif user.u_type == 'DV' %}
+                    <p>{{d.t_name}}</p>
+                    {% endif %}
                 {% endif %}
                 {% endfor %}
             </div>
@@ -27,9 +33,11 @@
                 <h3>Completed</h3>
                 {% for d in pg_data %}
                 {% if d.status == 'DN' %}
-                <div class="jobs">
+                    {% if user.u_type == 'CL' %}
                     <p>{{d.p_name}}</p>
-                </div>
+                    {% elif user.u_type == 'DV' %}
+                    <p>{{d.t_name}}</p>
+                    {% endif %}
                 {% endif %}
                 {% endfor %}
             </div>

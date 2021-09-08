@@ -26,6 +26,7 @@ def projects(request, id, token, pid=0):
         if request.method == 'POST':
             p = Project.objects.get(id=pid)
             p.accepted = True
+            p.asigned_to = user
             p.save()
             return redirect('/cldash/{}/{}/'.format(id, token))
         pg_data = Project.objects.filter(accepted=False).values()

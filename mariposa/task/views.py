@@ -74,6 +74,7 @@ def tasks(request, id, token, tid=0):
         if request.method == 'POST':
             t = Task.objects.get(id=tid)
             t.accepted = True
+            t.asigned_to = user
             t.save()
             return redirect('/cldash/{}/{}/'.format(id, token))
         t_data = Task.objects.filter(accepted=False).values()

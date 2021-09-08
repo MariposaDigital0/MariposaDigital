@@ -1,3 +1,4 @@
+from mariposa.task.models import Task
 from django import forms
 from django.shortcuts import redirect, render
 from django.contrib.auth import get_user_model
@@ -20,18 +21,30 @@ def cldash(request, id, token):
         return render(request, 'notfound.html')
     UserModel = get_user_model()
     user = UserModel.objects.get(id=id)
-    pm = ProjectManager.objects.filter(user_account_id=user).values()
-    pg_data = []
-    for i in pm:
-        p = Project.objects.get(id=i['project_id_id'])
-        pg_data.append(p)
-        # print(pg_data)
-        # print(i['project_id_id'])
-    title = "Client Dashboard"
-    val = "cdb"
-    context = {
-        'title': title,
-        'val': val,
-        'pg_data': pg_data,
-    }
-    return render(request, 'general.html', context)
+    if user.u_type == 'CL':
+        pm = ProjectManager.objects.filter(user_account_id=user).values()
+        pg_data = []
+        for i in pm:
+            p = Project.objects.get(id=i['project_id_id'])
+            if p.accepted == True:
+                pg_data.append(p)
+            # print(pg_data)
+            # print(i['project_id_id'])
+        title = "Client Dashboard"
+        val = "cdb"
+        context = {
+            'title': title,
+            'val': val,
+            'pg_data': pg_data,
+        }
+        return render(request, 'general.html', context)
+    elif user.u_type == 'DV':
+        pg_data = Task.objects.filter(asigned_to=user).values()
+        title = "Developer Dashboard"
+        val = "cdb"
+        context = {
+            'title': title,
+            'val': val,
+            'pg_data': pg_data,
+        }
+        return render(request, 'general.html', context)

@@ -2,7 +2,7 @@ from django.db import models
 from django.db.models.base import Model
 from django.db.models.expressions import F
 from mariposa.project.models import Project, ClientPartner
-from mariposa.user.models import Employee, Role
+from mariposa.user.models import Employee, Role, CustomUser
 
 
 class Task(models.Model):
@@ -20,6 +20,8 @@ class Task(models.Model):
     estimated_budget = models.CharField(max_length=45)
     actual_budget = models.CharField(max_length=45, null=True, blank=True)
     accepted = models.BooleanField(default=False)
+    asigned_to = models.ForeignKey(
+        CustomUser, on_delete=models.CASCADE, blank=True, null=True)
     TODO = 'TD'
     DOING = 'DG'
     DONE = 'DN'

@@ -17,6 +17,8 @@ class Project(models.Model):
     actual_budget = models.CharField(max_length=45, blank=True, null=True)
     estimated_budget = models.CharField(max_length=45)
     accepted = models.BooleanField(default=False)
+    asigned_to = models.ForeignKey(
+        CustomUser, on_delete=models.CASCADE, blank=True, null=True)
     TODO = 'TD'
     DOING = 'DG'
     DONE = 'DN'
