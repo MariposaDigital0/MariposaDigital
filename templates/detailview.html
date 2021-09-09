@@ -55,7 +55,7 @@
             </div>
             {% elif user.u_type == 'CL'%}
             <div class="ebtn">
-                <a href="" id="edit">Edit</a>
+                <a href="{% url 'edit_proj' user.id user.session_token proj.id %}" id="edit">Edit</a>
             </div>
             {% endif %}
         </div>

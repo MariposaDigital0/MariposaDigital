@@ -98,3 +98,31 @@ def createNewProject(request, id, token):
         'val': val,
     }
     return render(request, 'general.html', context)
+
+
+def projectEdit(request, id, token, pid):
+    if not validate_user_session(id, token):
+        return render(request, 'notfound.html')
+    User = get_user_model()
+    user = User.objects.get(id=id)
+    if request.method == 'POST':
+        pj = Project.objects.get(id=pid)
+        pj.p_name = request.POST['p_name']
+        pj.description = request.POST['desc']
+        if request.POST['p_s_d'] != "":
+            pj.planned_start_date = request.POST['p_s_d']
+        if request.POST['p_e_d'] != "":
+            pj.planned_end_date = request.POST['p_e_d']
+        pj.estimated_hours = request.POST['esh']
+        pj.estimated_budget = request.POST['esb']
+        pj.save()
+        return redirect('/projects/{}/{}'.format(id, token))
+    title = "Edit Project"
+    val = "edpj"
+    pj = Project.objects.get(id=pid)
+    context = {
+        'title': title,
+        'val': val,
+        'pj': pj,
+    }
+    return render(request, 'general.html', context)

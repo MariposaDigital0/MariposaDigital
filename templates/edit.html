@@ -1,0 +1,37 @@
+{% load static %}
+{% block content %}
+<div class="progform">
+    <h1>Edit Project</h1>
+    <form action="{% url 'edit_proj' user.id user.session_token pj.id%}" method="POST">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col"><label for="name">Project Name</label></div>
+            <div class="col"><input type="text" value="{{pj.p_name}}" id="name" name="p_name" required placeholder="Project Name"></div>
+        </div>
+        <div class="row">
+            <div class="col"><label for="desc">Description</label></div>
+            <div class="col"><textarea name="desc" id="desc" cols="30" rows="10" required
+                    placeholder="Description">{{pj.description}}</textarea></div>
+        </div>
+        <div class="row">
+            <div class="col"><label for="p_s_d">Planned Start Date</label></div>
+            <div class="col"><input type="date" id="p_s_d" name="p_s_d" ><p>{{pj.planned_start_date}}</p></div>
+        </div>
+        <div class="row">
+            <div class="col"><label for="p_e_d">Planned End Date</label></div>
+            <div class="col"><input type="date" id="p_e_d" name="p_e_d"><p>{{pj.planned_end_date}}</p></div>
+        </div>
+        <div class="row">
+            <div class="col"><label for="esh">Estimated Hours</label></div>
+            <div class="col"><input type="text" id="esh" value="{{ pj.estimated_hours }}" name="esh" required placeholder="Estimated Hours"></div>
+        </div>
+        <div class="row">
+            <div class="col"><label for="esb">Estimated Budget</label></div>
+            <div class="col"><input type="text" id="esb" value="{{ pj.estimated_budget }}" name="esb" required placeholder="Estimated Budget"></div>
+        </div>
+        <div class="row">
+            <div class="col"><input type="submit" value="Submit" name="submit" class="btn"></div>
+        </div>
+    </form>
+</div>
+{% endblock %}

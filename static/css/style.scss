@@ -791,6 +791,7 @@ footer {
           margin-bottom: 5px;
           label {
             color: color(accent);
+            font-size: 14px;
           }
           input {
             color: color(font1);
@@ -804,7 +805,13 @@ footer {
             width: 70%;
             border-radius: 6px;
           }
+          p {
+            font-size: 12px;
+            font-style: italic;
+            color: color(font1);
+          }
           textarea {
+            color: color(font1);
             background: color(bg1);
             resize: none;
             width: 70%;

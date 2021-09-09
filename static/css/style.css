@@ -1185,6 +1185,7 @@ footer ul li i {
 
 .dash .progform form .row .col label {
   color: #008fb3;
+  font-size: 14px;
 }
 
 .dash .progform form .row .col input {
@@ -1199,7 +1200,14 @@ footer ul li i {
   border-radius: 6px;
 }
 
+.dash .progform form .row .col p {
+  font-size: 12px;
+  font-style: italic;
+  color: #666666;
+}
+
 .dash .progform form .row .col textarea {
+  color: #666666;
   background: #e6e6e6;
   resize: none;
   width: 70%;

@@ -7,4 +7,6 @@ urlpatterns = [
     path('createnew/', views.createNewProject, name="newproject"),
     path('project_detail_view/<int:pid>',
          views.projectDetailView, name="pd_view"),
+    path('edit_project/<int:pid>',
+         views.projectEdit, name="edit_proj"),
 ]

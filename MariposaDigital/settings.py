@@ -75,8 +75,8 @@ TEMPLATES = [
     },
 ]
 
+ASGI_APPLICATION = 'MariposaDigital.asgi.application'
 WSGI_APPLICATION = 'MariposaDigital.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
