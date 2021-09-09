@@ -1126,7 +1126,7 @@ footer ul li i {
 .dash {
   overflow: hidden;
   margin-left: 300px;
-  height: 150vh;
+  height: 200vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1230,6 +1230,11 @@ footer ul li i {
 
 .dash .progform form .row .col .btn:hover {
   background: #00ccff;
+}
+
+.dash .progform form .row .col #id_file {
+  background: none;
+  color: #008fb3;
 }
 
 .pg_list {

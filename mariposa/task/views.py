@@ -125,3 +125,43 @@ def taskDetailView(request, id, token, tid):
         'atch': atch,
     }
     return render(request, 'general.html', context)
+
+
+def taskEdit(request, id, token, tid):
+    if not validate_user_session(id, token):
+        return render(request, 'notfound.html')
+    User = get_user_model()
+    user = User.objects.get(id=id)
+    if request.method == 'POST':
+        tx = Task.objects.get(id=tid)
+        tx.t_name = request.POST['t_name']
+        tx.description = request.POST['desc']
+        tx.priority = request.POST['prio']
+        if request.POST['p_s_d'] != "":
+            tx.planned_start_date = request.POST['p_s_d']
+        if request.POST['p_e_d'] != "":
+            tx.planned_end_date = request.POST['p_e_d']
+        tx.estimated_hours = request.POST['esh']
+        tx.estimated_budget = request.POST['esb']
+        tx.save()
+        # form = request.POST['file']
+        # if form.is_valid():
+        #     print("Valid")
+        #     instance = Attachments(
+        #         project_id=tx.project_id, media=request.FILES['file'], task_id=tx)
+        #     tx.save()
+        #     instance.save()
+        # else:
+        #     tx.save()
+        return redirect('/tasks/{}/{}'.format(id, token))
+    title = "Edit Task"
+    val = "edtx"
+    form = UploadFileForm
+    tx = Task.objects.get(id=tid)
+    context = {
+        'title': title,
+        'val': val,
+        'tx': tx,
+        'form': form
+    }
+    return render(request, 'general.html', context)

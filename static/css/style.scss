@@ -759,7 +759,7 @@ footer {
 .dash {
   overflow: hidden;
   margin-left: 300px;
-  height: 150vh;
+  height: 200vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -833,6 +833,10 @@ footer {
           }
           .btn:hover {
             background: color(primary);
+          }
+          #id_file {
+            background: none;
+            color: color(accent);
           }
         }
       }
