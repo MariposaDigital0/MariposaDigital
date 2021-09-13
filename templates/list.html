@@ -3,7 +3,11 @@
 {% block content %}
     <section class="pg_list">
         <div class="data_list">
+            {% if user.u_type == 'DV' %}
+            <h1>New Projects</h1>
+            {% else %}
             <h1>Your Projects</h1>
+            {% endif %}
             <table class="table">
                 <tr>
                     {% for h in t_header %}

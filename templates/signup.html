@@ -11,13 +11,18 @@
             <h1>Sign Up</h1>
             <form action="{% url 'signup' %}" method="POST">
                 {% csrf_token %}
-                <input type="text" name="f_name" placeholder="First Nmae" class="inp">
-                <input type="text" name="l_name" placeholder="Last Name" class="inp">
-                <input type="text" name="username" placeholder="Username" class="inp">
-                <input type="email" name="email" placeholder="Email" class="inp">
-                <input type="text" name="ph_no" placeholder="Phone No." class="inp">
-                <input type="password" name="password" placeholder="Password" class="inp">
-                <input type="password" name="conf_pass" placeholder="Confirm Password" class="inp">
+                <input type="text" name="f_name" placeholder="First Nmae" required class="inp">
+                <input type="text" name="l_name" placeholder="Last Name" required class="inp">
+                <input type="text" name="username" placeholder="Username" required class="inp">
+                <select name="user" id="user">
+                    <option value="CL">Client</option>
+                    <option value="DV">Developer</option>
+                    <option value="QA">Tester</option>
+                </select>
+                <input type="email" name="email" placeholder="Email" required class="inp">
+                <input type="text" name="ph_no" placeholder="Phone No." required class="inp">
+                <input type="password" name="password" placeholder="Password" required class="inp">
+                <input type="password" name="conf_pass" placeholder="Confirm Password" required class="inp">
                 <input type="submit" value="Sign Up" class="l-btn" id="l-btn">
             </form>
         </div>

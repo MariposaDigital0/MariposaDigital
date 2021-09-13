@@ -699,7 +699,22 @@ footer {
         outline: none;
         box-shadow: 1px 3px 20px color(btn1);
       }
-
+      #user {
+        outline: none;
+        border: none;
+        text-align: center;
+        font-size: 14px;
+        cursor: pointer;
+        width: 100px;
+        height: 40px;
+        color: color(font1);
+        background: color(bg1);
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid color(border1);
+        box-shadow: 1px 3px 20px color(btn1);
+        align-items: center;
+      }
       .inp {
         width: 50%;
         height: 40px;

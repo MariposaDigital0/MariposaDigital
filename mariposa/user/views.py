@@ -17,6 +17,7 @@ def signup(request):
         first_name = request.POST['f_name']
         last_name = request.POST['l_name']
         username = request.POST['username']
+        u_type = request.POST['user']
         email = request.POST['email']
         phone = request.POST['ph_no']
         password = request.POST['password']
@@ -30,7 +31,7 @@ def signup(request):
                 return redirect('/')
             else:
                 user = User.objects.create_user(
-                    username=username, password=password, email=email, phone=phone, first_name=first_name, last_name=last_name, u_type='CL')
+                    username=username, password=password, email=email, phone=phone, first_name=first_name, last_name=last_name, u_type=u_type)
                 user.save()
                 print(request, 'user created')
                 return redirect('/')
@@ -43,35 +44,36 @@ def signup(request):
         return render(request, 'signup.html', context)
 
 
-def devSignup(request):
-    if request.method == 'POST':
-        first_name = request.POST['f_name']
-        last_name = request.POST['l_name']
-        username = request.POST['username']
-        email = request.POST['email']
-        phone = request.POST['ph_no']
-        password = request.POST['password']
-        conf_pass = request.POST['conf_pass']
-        if password == conf_pass:
-            if User.objects.filter(username=username).exists():
-                messages.info(request, 'username taken')
-                return redirect('/')
-            elif User.objects.filter(email=email).exists():
-                messages.info(request, 'email taken')
-                return redirect('/')
-            else:
-                user = User.objects.create_user(
-                    username=username, password=password, email=email, phone=phone, first_name=first_name, last_name=last_name, u_type='DV')
-                user.save()
-                print(request, 'user created')
-                return redirect('/')
-        else:
-            messages.info(request, 'password not matching')
-            return redirect('/')
-    else:
-        context = {
-        }
-        return render(request, 'signup.html', context)
+# def devSignup(request):
+#     if request.method == 'POST':
+#         first_name = request.POST['f_name']
+#         last_name = request.POST['l_name']
+#         username = request.POST['username']
+#         u_type = request.POST['user']
+#         email = request.POST['email']
+#         phone = request.POST['ph_no']
+#         password = request.POST['password']
+#         conf_pass = request.POST['conf_pass']
+#         if password == conf_pass:
+#             if User.objects.filter(username=username).exists():
+#                 messages.info(request, 'username taken')
+#                 return redirect('/')
+#             elif User.objects.filter(email=email).exists():
+#                 messages.info(request, 'email taken')
+#                 return redirect('/')
+#             else:
+#                 user = User.objects.create_user(
+#                     username=username, password=password, email=email, phone=phone, first_name=first_name, last_name=last_name, u_type='DV')
+#                 user.save()
+#                 print(request, 'user created')
+#                 return redirect('/')
+#         else:
+#             messages.info(request, 'password not matching')
+#             return redirect('/')
+#     else:
+#         context = {
+#         }
+#         return render(request, 'signup.html', context)
 
 
 def login(request):

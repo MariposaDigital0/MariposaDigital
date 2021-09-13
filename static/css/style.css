@@ -1052,6 +1052,26 @@ footer ul li i {
           box-shadow: 1px 3px 20px #d9d9d9;
 }
 
+.signup .inner form #user {
+  outline: none;
+  border: none;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100px;
+  height: 40px;
+  color: #666666;
+  background: #e6e6e6;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #cccccc;
+  -webkit-box-shadow: 1px 3px 20px #d9d9d9;
+          box-shadow: 1px 3px 20px #d9d9d9;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .signup .inner form .inp {
   width: 50%;
   height: 40px;
