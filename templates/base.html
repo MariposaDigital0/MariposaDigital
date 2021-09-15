@@ -66,7 +66,13 @@
             <li><i class="fab fa-youtube"></i></li>
         </ul>
     </footer>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    <script>
+        {% for msg in messages %}
+            swal('{{msg}}');
+        {% endfor %}
+    </script>
 </body>
 
 </html>
